@@ -26,15 +26,3 @@ Direnv and rtx work similarly and there should be a direnv extension that can be
 
 Alternatively, you may be able to get tighter integration with a direnv extension and using the
 [`use_rtx`](/direnv) direnv function.
-
-pathmunge() {
-  if ! echo "${PATH}" | /usr/bin/grep -E -q "(^|:)$1($|:)"; then
-    if [ "$2" = "after" ]; then
-      PATH=${PATH}:$1
-    else
-      PATH=$1:${PATH}
-    fi
-  fi
-}
-
-pathmunge ~/.local/share/rtx/shims
